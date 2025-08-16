@@ -3,7 +3,7 @@
 # create a new venv by:
 # python -m venv venv
 # For activating virtual environment
-# source venv/bin/activate
+# source venv/Scripts/activate.bat
 # pip install -r requirements.txt
 # LangChain Core
 langchain
