@@ -129,7 +129,6 @@ with st.sidebar:
         if st.button("🚪 Logout"):
             st.session_state.authenticated = False
             st.session_state.username = ""
-            st.experimental_rerun()
 
 
 
@@ -199,6 +198,13 @@ if user_input:
             "👩‍💻 This AI chatbot was developed by **Neha Dhiman**, an MCA (2nd Year) student at "
             "Chaudhary Ranbir Singh University, Jind. It uses **Streamlit**, **Groq**, and the **LLaMA 3.3-70B Versatile** model "
             "to help you navigate career paths in Artificial Intelligence. 🚀"
+        )
+    elif any(kw in lowered_input for kw in ["who is neha", "Explain about your developer", "how is she looks"]):
+        bot_reply = (
+            "👩‍💻Neha is my creator — who taught me how to talk and think."
+            " She is the brilliant mind behind me — a tall, beautiful girl with brains, vision, and a knack for building AI that actually gets you. "
+            "She is an MCA (2nd Year) student at Chaudhary Ranbir Singh University, Jind. "
+            "She is passionate about Artificial Intelligence and has developed this chatbot to assist users in exploring AI careers."
         )
     else:
         with st.spinner("Thinking..."):
