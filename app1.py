@@ -66,16 +66,23 @@ with st.sidebar:
                             st.session_state.username = username
                             st.success(f"Welcome back, {username}!")
                             st.session_state.show_login = False
+                            st.rerun()  # Refresh the page to update the sidebar
                         else:
                             st.error("Invalid username or password.")
                     else:  # Sign Up
                         if create_user(username, password):
                             st.success("Account created! You can now log in.")
+                            st.session_state.show_login = False  # 👈 Hide the modal
+                            st.rerun()  # 👈 Optional: Refresh to reset fields
                         else:
                             st.warning("Username already exists.")
 
-                if st.button("Cancel"):
-                    st.session_state.show_login = False
+
+                    if st.button("Submit", key="submit_button"):
+                        # ... login/signup logic
+
+                        if st.button("Cancel", key="cancel_button"):
+                            st.session_state.show_login = False       
 
 # Load environment variables
 load_dotenv()
